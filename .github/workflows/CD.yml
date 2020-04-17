@@ -14,12 +14,6 @@ jobs:
                   ref: development
                   token: ${{secrets.GITHUB_TOKEN}}
 
-            - name: Configure git credentials
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action"
-                  git pull origin master
-
             - name: Push changes to master branch
               uses: ad-m/github-push-action@master
               with:
