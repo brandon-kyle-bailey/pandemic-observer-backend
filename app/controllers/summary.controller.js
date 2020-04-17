@@ -18,6 +18,7 @@ exports.global = (request, response) => {
 
         res.on('end', () => {
             response_body = JSON.parse(body);
+            response_body["Global"]["Date"] = response_body["Date"];
             response.json({
                 "message":"this is managed by the summary controller.",
                 "data": {
