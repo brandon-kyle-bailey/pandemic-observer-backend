@@ -4,7 +4,7 @@
   "description": "Node.js Backend for the Pandemic Observer project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
+    "test": "echo \"Error: no test specified on this branch!!!!\"",
     "start": "node index.js"
   },
   "repository": {
