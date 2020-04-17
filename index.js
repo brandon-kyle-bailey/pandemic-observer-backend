@@ -3,9 +3,6 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
-
 const summary = require('./app/routes/summary.routes.js');
 
 app.use('/summary', summary);
@@ -15,6 +12,6 @@ app.get('/', (request, response) => {
 });
 
 
-app.listen(PORT, HOST, () => {
-    console.log(`Server listening at http://${HOST}:${PORT}`);
+app.listen(process.env.PORT, process.env.HOST, () => {
+    console.log(`Server listening at http://${process.env.HOST}:${process.env.PORT}`);
 });
