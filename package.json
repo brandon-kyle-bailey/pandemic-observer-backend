@@ -1,0 +1,27 @@
+{
+  "name": "pandemic-observer-backend",
+  "version": "0.1.0",
+  "description": "Node.js Backend for the Pandemic Observer project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon-kyle-bailey/pandemic-observer-backend.git"
+  },
+  "author": "brandon-kyle-bailey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandon-kyle-bailey/pandemic-observer-backend/issues"
+  },
+  "homepage": "https://github.com/brandon-kyle-bailey/pandemic-observer-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "mongoose": "^5.9.9"
+  }
+}
