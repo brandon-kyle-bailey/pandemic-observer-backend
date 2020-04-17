@@ -14,16 +14,10 @@ jobs:
                   ref: development
                   token: ${{secrets.GITHUB_TOKEN}}
 
-            - name: Add entry to commit log.
-              run: |
-                  echo "New commit made by GitHub Action" >> commit.log
-
             - name: Configure git credentials
               run: |
                   git config --local user.email "action@github.com"
                   git config --local user.name "GitHub Action"
-                  git add .
-                  git commit -am "[minor] minor test commit."
 
             - name: Push changes to master branch
               uses: ad-m/github-push-action@master
