@@ -1,0 +1,27 @@
+name: CD
+
+on:
+  push:
+      branches:
+          - development
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout development branch
+              uses: actions/checkout@v2
+              with:
+                  ref: development
+                  token: ${{secrets.GITHUB_TOKEN}}
+
+            - name: Configure git credentials
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git commit -m "[minor] minor test commit."
+
+            - name: Push changes to master branch
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{secrets.GITHUB_TOKEN}}
+                  branch: master                  
