@@ -1,9 +1,10 @@
 name: DEPLOY
 
+
 on:
-  push:
-      branches:
-        - master
+  release:
+    types: [published]
+         
 
 jobs:
     build:
