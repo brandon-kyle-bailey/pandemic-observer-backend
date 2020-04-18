@@ -15,6 +15,12 @@ jobs:
                   token: ${{secrets.GITHUB_TOKEN}}
                   fetch-depth: 0
 
+            - name: Commit files
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git push
+
             - name: Push changes to master branch
               uses: ad-m/github-push-action@master
               with:
