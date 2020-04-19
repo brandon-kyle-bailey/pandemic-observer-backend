@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - master
+        
 jobs:
     release-on-push:
         name: Release on Push to Master
