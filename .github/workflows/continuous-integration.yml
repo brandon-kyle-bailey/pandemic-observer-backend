@@ -1,0 +1,37 @@
+name: Continuous Integration
+
+on:
+
+  pull_request:
+      
+    branches: [development]
+      
+    types: [opened, synchronize, closed]
+
+
+jobs:
+
+  buildAndTest:
+      
+    name: Build and Test
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - name: Checkout pull request branch
+        
+        uses: actions/checkout@v2
+
+        with:
+          ref: ${{github.event.pull_request.head.sha}}
+
+          
+      - name: Install Dependencies
+              
+        run: npm install
+
+        
+      - name: Test Application
+        
+        run: npm test
