@@ -1,17 +1,32 @@
 name: Continuous Deployment
+
 on:
+
     push:
+    
         branches:
+        
             - master
         
+
 jobs:
+
     release-on-push:
+    
         name: Release on Push to Master
+        
         runs-on: ubuntu-latest
+        
         env:
+        
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
         steps:
+        
             - uses: rymndhng/release-on-push-action@master
+            
               name: Create Minor Release
+              
               with:
+              
                   bump_version_scheme: minor
