@@ -43,6 +43,9 @@ jobs:
             - name: Checkout Master Branch
               
               uses: actions/checkout@v2
+              with:
+                  ref: master
+                  fetch-depth: 0
 
             - name: Add Herkou Origin
               
