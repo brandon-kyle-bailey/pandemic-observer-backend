@@ -12,9 +12,7 @@ on:
     jobs:
         
         release-on-push:
-
-            name: Create Release on Push
-            
+ 
             runs-on: ubuntu-latest
 
             env:
