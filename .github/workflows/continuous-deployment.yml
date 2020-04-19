@@ -17,16 +17,16 @@ on:
             
             runs-on: ubuntu-latest
 
-        env:
+            env:
+    
+                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            steps:
+                
+                - uses: rymndhng/release-on-push-action@master
 
-        steps:
-            
-            - uses: rymndhng/release-on-push-action@master
-
-              name: Create Minor Release
+                  name: Create Minor Release
               
-              with:
+                  with:
               
-                  bump_version_scheme: minor
+                      bump_version_scheme: minor
