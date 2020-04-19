@@ -1,42 +1,25 @@
 const https = require('https');
 
 
-exports.global = (request, response) => {
-
-    var response_body;
-
-    https.get('https://api.covid19api.com/summary', (res) => {
-
-        var body = '';
-
-        console.log('statusCode:', res.statusCode);
-        console.log('headers:', res.headers);
-
-        res.on('data', (d) => {
-            body += d;
+makeHttpRequest = function(uri, callbackFunc) {
+    https.get(uri, (response) => {
+        console.log('statusCode:', response.statusCode);
+        console.log('headers:', response.headers);
+        var body = [];
+        response.on('data', (data) => {
+            body.push(data);
         });
-
-        res.on('end', () => {
-            response_body = JSON.parse(body);
-            response_body["Global"]["Date"] = response_body["Date"];
-            response.json({
-                "message":"this is managed by the summary controller.",
-                "data": {
-                    "global": response_body["Global"],
-                },
-            });
+        response.on('end', () => {
+            callbackFunc(JSON.parse(body.join('')));
         });
-
-    }).on('error', (e) => {
-
-        console.error(e);
-
+    }).on('error', (err) => {
+        console.log(err);
     });
+};
 
-    //response.json({
-    //    "message":"this is managed by the summary controller.",
-    //    "data": {
-    //        "global": response_body.global,
-    //    },
-    //});
+
+exports.all = (req, res) => {
+    makeHttpRequest(process.env.API_ROOT, (data) => {
+        res.json(data)
+    });
 };

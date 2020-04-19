@@ -3,6 +3,7 @@ const router = express.Router();
 
 const summary = require('../controllers/summary.controller.js');
 
-router.get('/global', summary.global);
+router.get('/all', summary.all);
+
 
 module.exports = router;
