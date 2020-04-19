@@ -1,0 +1,55 @@
+name: Continuous Deployment
+
+on:
+
+    push:
+    
+        branches:
+        
+            - master
+        
+
+jobs:
+
+    release-on-push:
+    
+        name: Release on Push to Master
+        
+        runs-on: ubuntu-latest
+        
+        env:
+        
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+        steps:
+        
+            - uses: rymndhng/release-on-push-action@master
+            
+              name: Create Minor Release
+              
+              with:
+              
+                  bump_version_scheme: minor
+
+
+    deploy:
+
+        name: Deploy to Production
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: Checkout Master Branch
+              
+              uses: actions/checkout@v2
+
+            - name: Add Herkou Origin
+              
+              run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
+
+            - name: Deploy to Heroku
+             
+              run: git push heroku HEAD:master -f
+            
