@@ -48,6 +48,8 @@ jobs:
               
               run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
 
+            - name: Fetch Deep Copy
+              run: git fetch --all --unshallow
 
             - name: Deploy to Heroku
              
