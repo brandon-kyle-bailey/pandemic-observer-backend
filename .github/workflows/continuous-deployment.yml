@@ -16,7 +16,9 @@ jobs:
         name: Release on Push to Master
         
         runs-on: ubuntu-latest
-        
+
+        if: "!contains(github.event.head_commit.message, '[skip release]')" 
+
         env:
         
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
