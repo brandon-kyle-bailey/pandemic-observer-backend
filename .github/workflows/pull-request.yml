@@ -1,19 +1,18 @@
-name: Pull Request to Production on Push to Development branch
+name: Test Pull Request Action
 
 on:
     push:
         branches:
-            - development
+            - third_party_testing
 
 jobs:
   auto-pull-request:
     name: Auto Pull Request to Master
     runs-on: ubuntu-latest
     steps:
-      - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.5
+      - name: pull-request-action-test
+        uses: vsoch/pull-request-action@fix/assignee-reviewer-parsing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_TITLE: ${{github.event.head_commit.message}}
-          PULL_REQUEST_ASSIGNEES: "'brandon-kyle-bailey'" 
-
+          PULL_REQUEST_ASSIGNEES: "brandon-kyle-bailey" 
