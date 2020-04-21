@@ -1,0 +1,19 @@
+name: Pull Request to Production on Push to Development branch
+
+on:
+  push:
+    - development
+
+jobs:
+  auto-pull-request:
+    name: PullRequestAction
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@1.0.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_TITLE: ${{github.event.head_commit.message}}
+          PULL_REQUEST_BODY: ${{github.event.head_commit.message}}
+          PULL_REQUEST_ASSIGNEES: "brandon-kyle-bailey"
+
