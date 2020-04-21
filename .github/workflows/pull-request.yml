@@ -7,7 +7,7 @@ on:
 
 jobs:
   auto-pull-request:
-    name: PullRequestAction
+    name: Auto Pull Request to Master
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action
@@ -15,6 +15,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_TITLE: ${{github.event.head_commit.message}}
-          PULL_REQUEST_BODY: ${{github.event.head_commit.message}}
-          PULL_REQUEST_ASSIGNEES: "brandon-kyle-bailey"
+          PULL_REQUEST_ASSIGNEES: " brandon-kyle-bailey bot"
 
