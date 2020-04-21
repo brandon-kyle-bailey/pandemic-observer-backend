@@ -1,4 +1,4 @@
-name: Pull Request to Production on Push to Development branch
+name: Pull Request to Master
 
 on:
     push:
@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.5
+        uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_TITLE: ${{github.event.head_commit.message}}
-          PULL_REQUEST_ASSIGNEES: "'brandon-kyle-bailey'" 
-
+          PULL_REQUEST_ASSIGNEES: "brandon-kyle-bailey" 
