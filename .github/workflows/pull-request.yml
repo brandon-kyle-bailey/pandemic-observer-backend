@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action-test
-        uses: vsoch/pull-request-action@fix/assignee-reviewer-parsing
+        uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_TITLE: ${{github.event.head_commit.message}}
