@@ -1,9 +1,9 @@
-name: Test Pull Request Action
+name: Pull Request to Master
 
 on:
     push:
         branches:
-            - third_party_testing
+            - development
 
 jobs:
   auto-pull-request:
