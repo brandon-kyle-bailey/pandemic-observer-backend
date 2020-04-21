@@ -1,8 +1,9 @@
 name: Pull Request to Production on Push to Development branch
 
 on:
-  push:
-    - development
+    push:
+        branches:
+            - development
 
 jobs:
   auto-pull-request:
