@@ -10,7 +10,7 @@ jobs:
     name: Auto Pull Request to Master
     runs-on: ubuntu-latest
     steps:
-      - name: pull-request-action-test
+      - name: pull-request-action
         uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
